@@ -159,14 +159,14 @@ function UnfoldMoreIcon() {
       <path
         d="M1.66683 10.0007L5.00016 13.334L8.3335 10.0007"
         stroke="black"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M8.33317 5.99935L4.99984 2.66602L1.6665 5.99935"
         stroke="black"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -195,7 +195,7 @@ export default function BasicTable() {
         <TableContainer sx={{ width: "calc(100vw - 96px)" }}>
           <Table
             sx={{ maxWidth: "calc(100vw - 50px)", overflow: "scroll" }}
-            aria-label="simple table"
+            ariaLabel="simple table"
           >
             <TableHead>
               <TableRow>
@@ -329,7 +329,7 @@ export default function BasicTable() {
           >
             <FormControl variant="standard" sx={{ m: 0, border: "none" }}>
               <Select
-                labelId="demo-simple-select-standard-label"
+                labelId="demo-simple-select-standardLabel"
                 id="demo-simple-select-standard"
                 value={page}
                 sx={{
