@@ -7,7 +7,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import {
   Pagination,
   Typography,
@@ -148,6 +147,31 @@ const HeadTitle = [
   },
 ];
 
+function UnfoldMoreIcon() {
+  return (
+    <svg
+      width="13"
+      height="16"
+      viewBox="0 0 13 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.66683 10.0007L5.00016 13.334L8.3335 10.0007"
+        stroke="black"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.33317 5.99935L4.99984 2.66602L1.6665 5.99935"
+        stroke="black"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function BasicTable() {
   const [page, setPage] = React.useState(10);
 
@@ -189,7 +213,7 @@ export default function BasicTable() {
                         cursor: "pointer",
                       }}
                     >
-                      <UnfoldMoreIcon />{" "}
+                      <UnfoldMoreIcon />
                       <Typography
                         sx={{
                           width: "max-content",
