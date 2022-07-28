@@ -178,15 +178,18 @@ export default function BasicTable() {
                   <TableCell
                     align="left"
                     key={i}
-                    sx={{ width: "max-content", paddingTop: "40px" }}
+                    sx={{
+                      width: "max-content",
+                      paddingTop: "40px",
+                    }}
                   >
                     <Box
                       sx={{
-                        display: "flex",
                         alignItems: "center",
                         gap: "8px",
                         cursor: "pointer",
-                        justifyContent: "flex-start",
+                        display: "flex",
+                        justifyContent: i !== 5 ? "flex-start" : "flex-end",
                       }}
                     >
                       <UnfoldMoreIcon
@@ -274,6 +277,8 @@ export default function BasicTable() {
                       sx={{
                         width: "max-content",
                         fontSize: ".875rem",
+                        minWidth: "100%",
+                        textAlign: "right",
                       }}
                     >
                       {row.testID}
