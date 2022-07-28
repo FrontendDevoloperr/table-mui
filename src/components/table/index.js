@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import {
   Pagination,
   Typography,
@@ -17,31 +18,6 @@ import {
 
 function createData(test1, test2, info, test3, test4, testID) {
   return { test1, test2, info, test3, test4, testID };
-}
-
-function Arrow() {
-  return (
-    <svg
-      width="13"
-      height="16"
-      viewBox="0 0 13 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M1.66671 10.0007L5.00004 13.334L8.33337 10.0007"
-        stroke="black"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.33329 5.99935L4.99996 2.66602L1.66663 5.99935"
-        stroke="black"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 const rows = [
@@ -87,9 +63,53 @@ const rows = [
   ),
 ];
 
+const HeadTitle = [
+  {
+    id: "test1",
+    label: "Название теста",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+  {
+    id: "test2",
+    label: "Идентификатор",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+  {
+    id: "info",
+    label: "Информация",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+  {
+    id: "test3",
+    label: "Тип",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+  {
+    id: "test4",
+    label: "Значение",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+  {
+    id: "testID",
+    label: "Идентификатор",
+    align: "left",
+    sortable: true,
+    sortDirection: "asc",
+  },
+];
+
 export default function BasicTable() {
   const [page, setPage] = React.useState(10);
-
 
   return (
     <Box
@@ -97,122 +117,133 @@ export default function BasicTable() {
         width: "max-content",
         maxWidth: "calc(100vw - 50px)",
         margin: "0 auto",
-        padding: "0px 24px",
       }}
     >
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 420 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Тест1</p>
-                </Box>
-              </TableCell>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Тест2</p>
-                </Box>
-              </TableCell>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Инфо</p>
-                </Box>
-              </TableCell>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Тест3</p>
-                </Box>
-              </TableCell>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Тест4</p>
-                </Box>
-              </TableCell>
-              <TableCell align="left" sx={{ width: "max-content" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <Arrow /> <p>Test_ID</p>
-                </Box>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.test1}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.test1}
-                </TableCell>
-                <TableCell align="left" sx={{ width: "max-content" }}>
-                  {row.test2}
-                </TableCell>
-                <TableCell align="left" sx={{ width: "max-content" }}>
-                  {row.info}
-                </TableCell>
-                <TableCell align="left" sx={{ width: "max-content" }}>
-                  {row.test3}
-                </TableCell>
-                <TableCell align="left" sx={{ width: "max-content" }}>
-                  {row.test4}
-                </TableCell>
-                <TableCell align="left" sx={{ width: "max-content" }}>
-                  {row.testID}
-                </TableCell>
+      <TableContainer
+        component={Paper}
+        sx={{
+          width: "max-content",
+          margin: "0 auto",
+          padding: "0px 24px",
+          boxShadow: "none",
+        }}
+      >
+        <TableContainer sx={{ maxWidth: "calc(100vw - 96px)" }}>
+          <Table
+            sx={{ maxWidth: "calc(100vw - 50px)", overflow: "scroll" }}
+            aria-label="simple table"
+          >
+            <TableHead>
+              <TableRow>
+                {HeadTitle.map((_title, i) => (
+                  <TableCell
+                    align="left"
+                    key={i}
+                    sx={{ width: "max-content", paddingTop: "40px" }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <UnfoldMoreIcon />{" "}
+                      <Typography
+                        sx={{
+                          width: "max-content",
+                          fontSize: ".875rem",
+                        }}
+                      >
+                        {_title?.id}
+                      </Typography>
+                    </Box>
+                  </TableCell>
+                ))}
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.test1}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.test1}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left" sx={{ width: "max-content" }}>
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.test2}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left" sx={{ width: "max-content" }}>
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.info}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left" sx={{ width: "max-content" }}>
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.test3}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left" sx={{ width: "max-content" }}>
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.test4}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left" sx={{ width: "max-content" }}>
+                    <Typography
+                      sx={{
+                        width: "max-content",
+                        fontSize: ".875rem",
+                      }}
+                    >
+                      {row.testID}
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
         <Box
           sx={{
             justifyContent: "space-between",
             borderRadius: "0px 0px 4px 4px",
-            borderTop: "1px solid #E0E0E0",
             alignItems: "center",
             display: "flex",
+            margin: "0 auto",
+            background: "#FFFFFF",
+            marginTop: "19px",
+            borderTop: "1px solid #E0E0E0",
           }}
         >
           <Typography
@@ -236,7 +267,11 @@ export default function BasicTable() {
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 value={page}
-                sx={{ fontSize: "0.875rem", height:"20px" , overflow:"hidden" }}
+                sx={{
+                  fontSize: "0.875rem",
+                  height: "20px",
+                  overflow: "hidden",
+                }}
               >
                 <MenuItem
                   sx={{ fontSize: "0.875rem" }}
