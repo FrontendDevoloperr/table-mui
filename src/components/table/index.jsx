@@ -30,36 +30,12 @@ const rows = [
     "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
-    "React redux",
-    "ID82724508",
-    "Информация q312tr2314132",
-    "Базовая витрина",
-    "testnput12",
-    "2testing-id-qwe412123-5122-fds1345121"
-  ),
-  createData(
-    "Vue angular свойства и различия",
-    "ID82724507",
-    "Тест регистрация qvd2212143",
-    "testnput12",
-    "6.0",
-    "62test52ing-id-qwe123-5122-fds1345121"
-  ),
-  createData(
-    "Работа с данными",
-    "ID82724509",
-    "Тест регистрация qvd221143",
-    "Специальная витрина",
-    "new24",
-    "5423testing234-id-123-5122-fds1345121"
-  ),
-  createData(
-    "Что такое react",
-    "ID82724507",
-    "Тест регистрация qvd2143",
-    "Сервис",
-    "152test",
-    "testing-id-qwe123-5122-fds1345121"
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
     "Обработка различной тестовой информации",
@@ -70,36 +46,60 @@ const rows = [
     "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
-    "React redux",
-    "ID82724508",
-    "Информация q312tr2314132",
-    "Базовая витрина",
-    "testnput12",
-    "2testing-id-qwe412123-5122-fds1345121"
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
-    "Vue angular свойства и различия",
-    "ID82724507",
-    "Тест регистрация qvd2212143",
-    "testnput12",
-    "6.0",
-    "62test52ing-id-qwe123-5122-fds1345121"
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
-    "Работа с данными",
-    "ID82724509",
-    "Тест регистрация qvd221143",
-    "Специальная витрина",
-    "new24",
-    "5423testing234-id-123-5122-fds1345121"
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
   createData(
-    "Что такое react",
-    "ID82724507",
-    "Тест регистрация qvd2143",
-    "Сервис",
-    "152test",
-    "testing-id-qwe123-5122-fds1345121"
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
+  ),
+  createData(
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
+  ),
+  createData(
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
+  ),
+  createData(
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
   ),
 ];
 
@@ -155,7 +155,7 @@ export default function BasicTable() {
     <Box
       sx={{
         width: "max-content",
-        maxWidth: "calc(100vw - 50px)",
+        maxWidth: "calc(1920px - 50px)",
         margin: "24px auto",
       }}
     >
@@ -167,9 +167,13 @@ export default function BasicTable() {
           boxShadow: "none",
         }}
       >
-        <TableContainer sx={{ width: "calc(100vw - 96px)" }}>
+        <TableContainer sx={{ maxWidth: "calc(1920px - 50px)" }}>
           <Table
-            sx={{ maxWidth: "calc(100vw - 50px)", overflow: "scroll" }}
+            sx={{
+              maxWidth: "calc(100vw - 50px)",
+              width: "1920px",
+              overflow: "scroll",
+            }}
             aria-label="simple table"
           >
             <TableHead>
@@ -181,6 +185,7 @@ export default function BasicTable() {
                     sx={{
                       width: "max-content",
                       paddingTop: "40px",
+                      minWidth: "calc(100vw / 6 - 50px)",
                     }}
                   >
                     <Box
@@ -189,7 +194,7 @@ export default function BasicTable() {
                         gap: "8px",
                         cursor: "pointer",
                         display: "flex",
-                        justifyContent: i !== 5 ? "flex-start" : "flex-end",
+                        // justifyContent: i !== 5 ? "flex-start" : "flex-end",
                       }}
                     >
                       <UnfoldMoreIcon
@@ -277,8 +282,8 @@ export default function BasicTable() {
                       sx={{
                         width: "max-content",
                         fontSize: ".875rem",
-                        minWidth: "100%",
-                        textAlign: "right",
+                        // minWidth: "100%",
+                        // textAlign: "right",
                       }}
                     >
                       {row.testID}
