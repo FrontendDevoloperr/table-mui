@@ -7,7 +7,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import { TablePagination, Pagination, Typography } from "@mui/material";
+import {
+  TablePagination,
+  Pagination,
+  Typography,
+  MenuItem,
+  Select,
+  FormControl,
+} from "@mui/material";
 
 function createData(test1, test2, info, test3, test4, testID) {
   return { test1, test2, info, test3, test4, testID };
@@ -98,23 +105,23 @@ export default function BasicTable() {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 420 }} aria-label="simple table">
           <TableHead>
-            <TableRow >
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+            <TableRow>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Тест1
               </TableCell>
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Тест2
               </TableCell>
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Инфо
               </TableCell>
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Тест3
               </TableCell>
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Тест4
               </TableCell>
-              <TableCell align="left" sx={{ width: 'max-content' }}>
+              <TableCell align="left" sx={{ width: "max-content" }}>
                 <Arrow /> Test_ID
               </TableCell>
             </TableRow>
@@ -128,11 +135,21 @@ export default function BasicTable() {
                 <TableCell component="th" scope="row">
                   {row.test1}
                 </TableCell>
-                <TableCell align="left" sx={{ width: 'max-content' }}>{row.test2}</TableCell>
-                <TableCell align="left" sx={{ width: 'max-content' }}>{row.info}</TableCell>
-                <TableCell align="left" sx={{ width: 'max-content' }}>{row.test3}</TableCell>
-                <TableCell align="left" sx={{ width: 'max-content' }}>{row.test4}</TableCell>
-                <TableCell align="left" sx={{ width: 'max-content' }}>{row.testID}</TableCell>
+                <TableCell align="left" sx={{ width: "max-content" }}>
+                  {row.test2}
+                </TableCell>
+                <TableCell align="left" sx={{ width: "max-content" }}>
+                  {row.info}
+                </TableCell>
+                <TableCell align="left" sx={{ width: "max-content" }}>
+                  {row.test3}
+                </TableCell>
+                <TableCell align="left" sx={{ width: "max-content" }}>
+                  {row.test4}
+                </TableCell>
+                <TableCell align="left" sx={{ width: "max-content" }}>
+                  {row.testID}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -147,7 +164,7 @@ export default function BasicTable() {
           }}
         >
           <Typography
-            align="left" 
+            align="left"
             variant="h6"
             component="h6"
             sx={{ fontSize: "0.875rem", padding: "16px" }}
@@ -162,15 +179,18 @@ export default function BasicTable() {
               display: "flex",
             }}
           >
-            <TablePagination
-              sx={{ width: "200px", overflow: "hidden" }}
-              component={"div"}
-              count={100}
-              page={page}
-              onPageChange={handleChangePage}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
+            <FormControl variant="standard" sx={{ m: 1, }}>
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={10}
+                onChange={handleChangePage}
+              >
+                <MenuItem value={10}>Показывать по 10</MenuItem>
+                <MenuItem value={20}>Показывать по 20</MenuItem>
+                <MenuItem value={30}>Показывать по 30</MenuItem>
+              </Select>
+            </FormControl>
             <Pagination count={100} color="primary" />
           </Box>
         </Box>
