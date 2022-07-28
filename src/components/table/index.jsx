@@ -195,7 +195,7 @@ export default function BasicTable() {
         <TableContainer sx={{ width: "calc(100vw - 96px)" }}>
           <Table
             sx={{ maxWidth: "calc(100vw - 50px)", overflow: "scroll" }}
-            ariaLabel="simple table"
+            aria-label="simple table"
           >
             <TableHead>
               <TableRow>
@@ -329,7 +329,7 @@ export default function BasicTable() {
           >
             <FormControl variant="standard" sx={{ m: 0, border: "none" }}>
               <Select
-                labelId="demo-simple-select-standardLabel"
+                labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 value={page}
                 sx={{
