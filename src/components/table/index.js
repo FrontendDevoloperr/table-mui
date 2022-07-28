@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import { makeStyles } from '@material-ui/core/styles';
 import {
   TablePagination,
   Pagination,
@@ -32,14 +33,14 @@ function Arrow() {
       <path
         d="M1.66671 10.0007L5.00004 13.334L8.33337 10.0007"
         stroke="black"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M8.33329 5.99935L4.99996 2.66602L1.66663 5.99935"
         stroke="black"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -89,40 +90,94 @@ const rows = [
 ];
 
 export default function BasicTable() {
-  const [page, setPage] = React.useState(2);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = React.useState(10);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+  const classes = useStyles();
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
   return (
-    <Box sx={{ width: "max-content", margin: "0 auto", padding: "0px 24px" }}>
+    <Box
+      sx={{
+        width: "max-content",
+        maxWidth: "calc(100vw - 50px)",
+        margin: "0 auto",
+        padding: "0px 24px",
+      }}
+    >
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 420 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Тест1
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Тест1</p>
+                </Box>
               </TableCell>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Тест2
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Тест2</p>
+                </Box>
               </TableCell>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Инфо
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Инфо</p>
+                </Box>
               </TableCell>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Тест3
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Тест3</p>
+                </Box>
               </TableCell>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Тест4
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Тест4</p>
+                </Box>
               </TableCell>
               <TableCell align="left" sx={{ width: "max-content" }}>
-                <Arrow /> Test_ID
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <Arrow /> <p>Test_ID</p>
+                </Box>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -179,16 +234,34 @@ export default function BasicTable() {
               display: "flex",
             }}
           >
-            <FormControl variant="standard" sx={{ m: 1, }}>
+            <FormControl variant="standard" sx={{ m: 0, border: "none" }}>
               <Select
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
-                value={10}
-                onChange={handleChangePage}
+                value={page}
+                sx={{ fontSize: "0.875rem", height:"20px" , overflow:"hidden" }}
               >
-                <MenuItem value={10}>Показывать по 10</MenuItem>
-                <MenuItem value={20}>Показывать по 20</MenuItem>
-                <MenuItem value={30}>Показывать по 30</MenuItem>
+                <MenuItem
+                  sx={{ fontSize: "0.875rem" }}
+                  onClick={() => setPage(10)}
+                  value={10}
+                >
+                  Показывать по 10
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontSize: "0.875rem" }}
+                  onClick={() => setPage(20)}
+                  value={20}
+                >
+                  Показывать по 20
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontSize: "0.875rem" }}
+                  onClick={() => setPage(30)}
+                  value={30}
+                >
+                  Показывать по 30
+                </MenuItem>
               </Select>
             </FormControl>
             <Pagination count={100} color="primary" />
