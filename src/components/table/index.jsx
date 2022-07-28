@@ -180,7 +180,7 @@ export default function BasicTable() {
       sx={{
         width: "max-content",
         maxWidth: "calc(100vw - 50px)",
-        margin: "0 auto",
+        margin: "24px auto",
       }}
     >
       <TableContainer
@@ -318,7 +318,7 @@ export default function BasicTable() {
             component="h6"
             sx={{ fontSize: "0.875rem", padding: "16px" }}
           >
-            Показано приложений: 1-10 из 85
+            Показано приложений: 1-10 из 100
           </Typography>
           <Box
             sx={{
