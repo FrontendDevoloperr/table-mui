@@ -1,3 +1,4 @@
+import React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,50 +7,108 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import { TablePagination, Pagination, Typography } from "@mui/material";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(test1, test2, info, test3, test4, testID) {
+  return { test1, test2, info, test3, test4, testID };
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  createData(
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
+  ),
+  createData("React redux", 'ID82724508', 'Информация q312tr2314132', 'Базовая витрина', 'testnput12',"2testing-id-qwe412123-5122-fds1345121"),
+  createData("Vue angular свойства и различия", 'ID82724507','Тест регистрация qvd2212143', 'testnput12', '6.0', '62test52ing-id-qwe123-5122-fds1345121'),
+  createData("Работа с данными", 'ID82724509', 'Тест регистрация qvd221143', 'Специальная витрина', 'new24',"5423testing234-id-123-5122-fds1345121"),
+  createData("Что такое react", 'ID82724507', 'Тест регистрация qvd2143', 'Сервис', '152test', "testing-id-qwe123-5122-fds1345121"),
 ];
 
 export default function BasicTable() {
+  const [page, setPage] = React.useState(2);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
   return (
-    <Box style={{ width: "100%", margin: "0 auto", padding: "0px 24px" }}>
+    <Box sx={{ width: "100%", margin: "0 auto", padding: "0px 24px" }}>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 420 }} aria-label="simple table">
           <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableRow sx={{ maxWidth: 420 }}>
+              <TableCell>Тест1</TableCell>
+              <TableCell align="left">Тест2</TableCell>
+              <TableCell align="left">Инфо</TableCell>
+              <TableCell align="left">Тест3</TableCell>
+              <TableCell align="left">Тест4</TableCell>
+              <TableCell align="left">Test_ID</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.test1}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.test1}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="left">{row.test2}</TableCell>
+                <TableCell align="left">{row.info}</TableCell>
+                <TableCell align="left">{row.test3}</TableCell>
+                <TableCell align="left">{row.test4}</TableCell>
+                <TableCell align="left">{row.testID}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        <Box
+          sx={{
+            justifyContent: "space-between",
+            borderRadius: "0px 0px 4px 4px",
+            borderTop: "1px solid #E0E0E0",
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Typography
+            align="left"
+            variant="h6"
+            component="h6"
+            sx={{ fontSize: "0.875rem", padding: "16px" }}
+          >
+            Показано приложений: 1-10 из 85
+          </Typography>
+          <Box
+            sx={{
+              justifyContent: "space-between",
+              borderRadius: "0px 0px 4px 4px",
+              alignItems: "center",
+              display: "flex",
+            }}
+          >
+            <TablePagination
+              sx={{ width: "200px", overflow: "hidden" }}
+              component={"div"}
+              count={100}
+              page={page}
+              onPageChange={handleChangePage}
+              rowsPerPage={rowsPerPage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+            <Pagination count={100} color="primary" />
+          </Box>
+        </Box>
       </TableContainer>
     </Box>
   );
