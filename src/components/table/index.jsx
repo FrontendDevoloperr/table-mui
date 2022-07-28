@@ -211,7 +211,7 @@ export default function BasicTable() {
                         alignItems: "center",
                         gap: "8px",
                         cursor: "pointer",
-                        justifyContent: i !== 5 ? "flex-start" : "flex-end",
+                        justifyContent: "flex-start",
                       }}
                     >
                       <UnfoldMoreIcon
@@ -299,8 +299,6 @@ export default function BasicTable() {
                       sx={{
                         width: "max-content",
                         fontSize: ".875rem",
-                        textAlign: "right",
-                        minWidth: "100%",
                       }}
                     >
                       {row.testID}
