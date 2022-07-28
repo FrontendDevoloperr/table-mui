@@ -308,7 +308,8 @@ export default function BasicTable() {
             background: "#FFFFFF",
             // marginTop: "19px",
             borderTop: "1px solid #E0E0E0",
-            height: "56px",
+            height: "55px",
+            overflow: "hidden",
           }}
         >
           <Typography
