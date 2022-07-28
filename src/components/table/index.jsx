@@ -61,6 +61,46 @@ const rows = [
     "152test",
     "testing-id-qwe123-5122-fds1345121"
   ),
+  createData(
+    "Обработка различной тестовой информации",
+    "ID82724506",
+    "CGLOGGING регистрация app_id",
+    "Приложение",
+    "reestrdover",
+    "uslndlcrmrb-svd-4d03-94a5-e144fcb78d34"
+  ),
+  createData(
+    "React redux",
+    "ID82724508",
+    "Информация q312tr2314132",
+    "Базовая витрина",
+    "testnput12",
+    "2testing-id-qwe412123-5122-fds1345121"
+  ),
+  createData(
+    "Vue angular свойства и различия",
+    "ID82724507",
+    "Тест регистрация qvd2212143",
+    "testnput12",
+    "6.0",
+    "62test52ing-id-qwe123-5122-fds1345121"
+  ),
+  createData(
+    "Работа с данными",
+    "ID82724509",
+    "Тест регистрация qvd221143",
+    "Специальная витрина",
+    "new24",
+    "5423testing234-id-123-5122-fds1345121"
+  ),
+  createData(
+    "Что такое react",
+    "ID82724507",
+    "Тест регистрация qvd2143",
+    "Сервис",
+    "152test",
+    "testing-id-qwe123-5122-fds1345121"
+  ),
 ];
 
 const HeadTitle = [
@@ -128,7 +168,7 @@ export default function BasicTable() {
           boxShadow: "none",
         }}
       >
-        <TableContainer sx={{ maxWidth: "calc(100vw - 96px)" }}>
+        <TableContainer sx={{ width: "calc(100vw - 96px)" }}>
           <Table
             sx={{ maxWidth: "calc(100vw - 50px)", overflow: "scroll" }}
             aria-label="simple table"
@@ -164,9 +204,9 @@ export default function BasicTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {rows.map((row, i) => (
                 <TableRow
-                  key={row.test1}
+                  key={i}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -242,8 +282,9 @@ export default function BasicTable() {
             display: "flex",
             margin: "0 auto",
             background: "#FFFFFF",
-            marginTop: "19px",
+            // marginTop: "19px",
             borderTop: "1px solid #E0E0E0",
+            height: "56px",
           }}
         >
           <Typography
@@ -269,8 +310,11 @@ export default function BasicTable() {
                 value={page}
                 sx={{
                   fontSize: "0.875rem",
-                  height: "20px",
+                  height: "70px",
                   overflow: "hidden",
+                  "*": {
+                    background: "none",
+                  },
                 }}
               >
                 <MenuItem

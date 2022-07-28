@@ -1,4 +1,4 @@
-import BasicTable from "./components/table";
+import BasicTable from "./components/table/index.jsx";
 
 function App() {
   return (
