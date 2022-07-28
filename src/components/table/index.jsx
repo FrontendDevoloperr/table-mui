@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import {
   Pagination,
   Typography,
@@ -147,30 +148,30 @@ const HeadTitle = [
   },
 ];
 
-function UnfoldMoreIcon() {
-  return (
-    <svg
-      width="13"
-      height="16"
-      viewBox="0 0 13 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M1.66683 10.0007L5.00016 13.334L8.3335 10.0007"
-        stroke="black"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.33317 5.99935L4.99984 2.66602L1.6665 5.99935"
-        stroke="black"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+// function UnfoldMoreIcon() {
+//   return (
+//     <svg
+//       width="13"
+//       height="16"
+//       viewBox="0 0 13 16"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <path
+//         d="M1.66683 10.0007L5.00016 13.334L8.3335 10.0007"
+//         stroke="black"
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//       />
+//       <path
+//         d="M8.33317 5.99935L4.99984 2.66602L1.6665 5.99935"
+//         stroke="black"
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//       />
+//     </svg>
+//   );
+// }
 
 export default function BasicTable() {
   const [page, setPage] = React.useState(10);
@@ -188,7 +189,6 @@ export default function BasicTable() {
         sx={{
           width: "max-content",
           margin: "0 auto",
-          padding: "0px 24px",
           boxShadow: "none",
         }}
       >
@@ -211,9 +211,15 @@ export default function BasicTable() {
                         alignItems: "center",
                         gap: "8px",
                         cursor: "pointer",
+                        justifyContent: i !== 5 ? "flex-start" : "flex-end",
                       }}
                     >
-                      <UnfoldMoreIcon />
+                      <UnfoldMoreIcon
+                        sx={{
+                          width: "15px",
+                          height: "20px",
+                        }}
+                      />
                       <Typography
                         sx={{
                           width: "max-content",
@@ -283,11 +289,18 @@ export default function BasicTable() {
                       {row.test4}
                     </Typography>
                   </TableCell>
-                  <TableCell align="left" sx={{ width: "max-content" }}>
+                  <TableCell
+                    align="right"
+                    sx={{
+                      width: "max-content",
+                    }}
+                  >
                     <Typography
                       sx={{
                         width: "max-content",
                         fontSize: ".875rem",
+                        textAlign: "right",
+                        minWidth: "100%",
                       }}
                     >
                       {row.testID}
