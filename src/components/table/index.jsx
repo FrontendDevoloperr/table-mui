@@ -167,11 +167,13 @@ export default function BasicTable() {
           boxShadow: "none",
         }}
       >
-        <TableContainer sx={{ maxWidth: "calc(1920px - 50px)" }}>
+        <TableContainer 
+        // sx={{ maxWidth: "calc(1920px - 50px)" }}
+        >
           <Table
             sx={{
               maxWidth: "calc(100vw - 50px)",
-              width: "1920px",
+              // width: "1920px",
               overflow: "scroll",
             }}
             aria-label="simple table"
@@ -185,7 +187,7 @@ export default function BasicTable() {
                     sx={{
                       width: "max-content",
                       paddingTop: "40px",
-                      minWidth: "calc(100vw / 6 - 50px)",
+                      // minWidth: "calc(100vw / 6 - 50px)",
                     }}
                   >
                     <Box
@@ -333,9 +335,6 @@ export default function BasicTable() {
                   fontSize: "0.875rem",
                   height: "70px",
                   overflow: "hidden",
-                  "*": {
-                    background: "none",
-                  },
                 }}
               >
                 <MenuItem
