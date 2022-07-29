@@ -168,7 +168,7 @@ export default function BasicTable() {
         }}
       >
         <TableContainer 
-        // sx={{ maxWidth: "calc(1920px - 50px)" }}
+        sx={{ maxWidth: "calc(100vw - 50px)", }}
         >
           <Table
             sx={{
